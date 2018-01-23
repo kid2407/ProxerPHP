@@ -1,0 +1,15 @@
+{
+    "name": "kid2407/proxerphp",
+    "description": "A PHP library for the Proxer.me API",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Franz",
+            "email": "cinex.mail@web.de"
+        }
+    ]
+}
