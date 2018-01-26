@@ -39,20 +39,6 @@ class Post {
 	public $thankYouCount;
 
 	/**
-	 * @param array $postArray
-	 *
-	 * @return Post[]
-	 */
-	public static function createPostsFromArray( $postArray ) {
-		$posts = [];
-		foreach ( $postArray as $postInfo ) {
-			$posts[] = new Post( $postInfo );
-		}
-
-		return $posts;
-	}
-
-	/**
 	 * Post constructor.
 	 *
 	 * @param array $data

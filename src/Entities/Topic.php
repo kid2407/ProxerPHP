@@ -9,10 +9,6 @@
 namespace ProxerPHP\Entities;
 
 
-use ProxerPHP\Exceptions\ProxerException;
-use ProxerPHP\Request\ProxerRequest;
-use ProxerPHP\Request\ProxerUrl;
-
 class Topic {
 
 	/** @var int $id */
@@ -42,7 +38,7 @@ class Topic {
 	 * @param array $data
 	 * @param int $topicid
 	 */
-	private function __construct( $data, $topicid ) {
+	public function __construct( $data, $topicid ) {
 		$this->id            = $topicid;
 		$this->category_id   = $data['category_id'];
 		$this->category_name = $data['category_name'];
@@ -52,53 +48,6 @@ class Topic {
 		$this->hits          = $data['hits'];
 		$this->firstPostTime = $data['first_post_time'];
 		$this->lastPostTime  = $data['last_post_time'];
-		$this->posts         = Post::createPostsFromArray( $data['posts'] );
-	}
-
-	/**
-	 * Gibt einen Thread mit seinem Erstpost aus.
-	 *
-	 * @param $topicId
-	 *
-	 * @return string
-	 * @throws ProxerException
-	 */
-	public static function getTopic( $topicId ) {
-		$result = ProxerRequest::sendGetRequest( 'forum/topic', [ 'id' => $topicId, 'limit' => 1 ] );
-
-		return new Topic( $result, $topicId );
-	}
-
-	/**
-	 * Laedt alle Posts eines Themas nach, den Anfangspost ausgenommen.
-	 *
-	 * @throws ProxerException
-	 */
-	public function fetchAllPosts() {
-		$postData    = ProxerRequest::sendGetRequest( ProxerUrl::$FORUM_GET_TOPIC, [ 'id' => $this->id, 'limit' => $this->postCount ] );
-		$posts       = Post::createPostsFromArray( $postData );
-		$this->posts = array_merge( $this->posts, $posts );
-	}
-
-	/**
-	 * Laedt die naechsten x posts des Themas, sofern vorhanden.
-	 * Aktuell nicht ohne unnoetigen Overhead nutzbar
-	 *
-	 * @param int $postCount
-	 */
-	public function fetchPosts( $postCount ) {
-	}
-
-	/**
-	 * Gibt eine Menge an Posts ab einem bestimmten Offset aus,
-	 * damit koennen z.B. Themen seitenweise geladen werden.
-	 *
-	 * @param int $postCount
-	 * @param int $offset
-	 *
-	 * @return Post[]
-	 */
-	public function getRangeOfPosts( $postCount, $offset = 0 ) {
-		return array_slice( $this->posts, $offset, $postCount );
+		$this->posts         = PostDAO::createPostsFromArray( $data['posts'] );
 	}
 }

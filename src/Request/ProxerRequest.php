@@ -26,12 +26,13 @@ class ProxerRequest {
 	 * @return array
 	 * @throws ProxerException
 	 */
-	private static function sendRequest( $path, $parameters, $type ) {
-		if ( $type === "GET" || $type == "POST" ) {
+	private static function sendRequest( $path, $parameters = [], $type ) {
+		if ( $type === "GET" || $type === "POST" ) {
 			if ( is_null( self::$client ) ) {
 				self::initClient();
 			}
-			$request = self::$client->request( 'POST', $path, $parameters );
+			$parameters['api_key'] = getenv( 'API_KEY' );
+			$request               = self::$client->request( 'POST', $path, $parameters );
 			if ( $request->getStatusCode() === 200 ) {
 				$json = json_decode( $request->getBody()->getContents(), true );
 				if ( $json !== false ) {
@@ -55,7 +56,7 @@ class ProxerRequest {
 	 * @return array
 	 * @throws ProxerException
 	 */
-	public static function sendGetRequest( $path, $parameters ) {
+	public static function sendGetRequest( $path, $parameters = [] ) {
 		return self::sendRequest( $path, $parameters, 'GET' );
 	}
 
@@ -66,7 +67,7 @@ class ProxerRequest {
 	 * @return array
 	 * @throws ProxerException
 	 */
-	public static function sendPostRequest( $path, $parameters ) {
+	public static function sendPostRequest( $path, $parameters = [] ) {
 		return self::sendRequest( $path, $parameters, 'POST' );
 	}
 
