@@ -53,7 +53,7 @@ class ProxerRequest {
 	 * @param $path
 	 * @param $parameters
 	 *
-	 * @return array
+	 * @return array|null
 	 * @throws ProxerException
 	 */
 	public static function sendGetRequest( $path, $parameters = [] ) {
@@ -64,7 +64,7 @@ class ProxerRequest {
 	 * @param $path
 	 * @param $parameters
 	 *
-	 * @return array
+	 * @return array|null
 	 * @throws ProxerException
 	 */
 	public static function sendPostRequest( $path, $parameters = [] ) {
