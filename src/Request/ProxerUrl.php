@@ -40,4 +40,9 @@ class ProxerUrl {
 	const MESSENGER_SET_FAVOUR = 'messenger/setfavour';
 	const MESSENGER_SET_UNFAVOUR = 'messenger/setunfavour';
 
+	const HEADER_RANDOM = 'media/randomheader';
+	const HEADER_LIST = 'media/headerlist';
+
+	const CALENDAR_PATH = 'media/calendar';
+
 }
