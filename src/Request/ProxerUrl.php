@@ -45,4 +45,27 @@ class ProxerUrl {
 
 	const CALENDAR_PATH = 'media/calendar';
 
+	const INFO_GET_FULL_ENTRY = 'info/fullentry';
+	const INFO_GET_BASIC_ENTRY = 'info/entry';
+	const INFO_GET_SYNONYMS = 'info/names';
+	const INFO_GET_IS_ADULT = 'info/gate';
+	const INFO_GET_LANG = 'info/lang';
+	const INFO_GET_SEASON = 'info/season';
+	const INFO_GET_GROUPS = 'info/groups';
+	const INFO_GET_PUBLISHER = 'info/publisher';
+	const INFO_GET_EPISODES_OR_CHAPTERS = 'info/listinfo';
+	const INFO_GET_COMMENTS = 'info/comments';
+	const INFO_GET_RELATIONS = 'info/relations';
+	const INFO_GET_TAGS = 'info/entrytags';
+	const INFO_GET_TRANSLATORGROUP = 'info/translatorgroup';
+	const INFO_GET_INDUSTRY = 'info/industry';
+	const INFO_GET_RECOMMENDATIONS = 'info/recommendations';
+	const INFO_SET_USER_ENTRY = 'info/setuserinfo';
+	const INFO_GET_USER_ENTRY = 'info/userinfo';
+	const INFO_GET_CHARACTERS = 'info/characters';
+	const INFO_GET_PERSONS = 'info/persons';
+	const INFO_GET_CHARACTER = 'info/character';
+	const INFO_GET_PERSON = 'info/person';
+	const INFO_GET_FORUM_ENTRIES = 'info/forum';
+
 }
