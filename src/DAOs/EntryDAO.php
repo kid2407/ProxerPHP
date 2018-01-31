@@ -73,7 +73,7 @@ class EntryDAO {
 
 		if ( in_array( Entry::TYPE_CHAPTERS, $properties ) ) {
 			self::addPropertyToEntry( $entry, Entry::TYPE_CHAPTERS );
-		} else if ( in_array( Entry::TYPE_CHARACTERS, $properties ) ) {
+		} elseif ( in_array( Entry::TYPE_CHARACTERS, $properties ) ) {
 			self::addPropertyToEntry( $entry, Entry::TYPE_CHARACTERS );
 		} elseif ( in_array( Entry::TYPE_COMMENTS, $properties ) ) {
 			self::addPropertyToEntry( $entry, Entry::TYPE_COMMENTS );
@@ -151,13 +151,13 @@ class EntryDAO {
 				$entry->relations = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_RELATIONS, [ 'id' => $entry->id ] ), Entry::TYPE_RELATIONS );
 				break;
 			case Entry::TYPE_SEASONS:
-				$entry->relations = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_SEASON, [ 'id' => $entry->id ] ), Entry::TYPE_SEASONS );
+				$entry->seasons = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_SEASON, [ 'id' => $entry->id ] ), Entry::TYPE_SEASONS );
 				break;
 			case Entry::TYPE_SYNONYMS:
-				$entry->relations = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_SYNONYMS, [ 'id' => $entry->id ] ), Entry::TYPE_SYNONYMS );
+				$entry->names = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_SYNONYMS, [ 'id' => $entry->id ] ), Entry::TYPE_SYNONYMS );
 				break;
 			case Entry::TYPE_TAGS:
-				$entry->relations = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_TAGS, [ 'id' => $entry->id ] ), Entry::TYPE_TAGS );
+				$entry->tags = self::createEntitiesFromArray( ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_TAGS, [ 'id' => $entry->id ] ), Entry::TYPE_TAGS );
 				break;
 		}
 	}
@@ -244,6 +244,34 @@ class EntryDAO {
 		}
 
 		return $entities;
+	}
+
+	/**
+	 * Seztzt den Status des Entrys fuer den User, erlaubte Werte sind:
+	 * "note" = Wird noch geschaut
+	 * "favor" = Favoriten
+	 * "finish" = Abgeschlossen
+	 * Benoetigt einen eingeloggten User
+	 *
+	 * @param int $entryId
+	 * @param string $type
+	 *
+	 * @throws ProxerException
+	 */
+	public static function setEntryStateForUser( $entryId, $type ) {
+		ProxerRequest::sendPostRequest( ProxerUrl::INFO_SET_USER_ENTRY, [ 'id' => $entryId, 'type' => $type ] );
+	}
+
+	/**
+	 * Gibt zurueck, auf welchen Listen des Users sich ein Eintrag befindet.
+	 *
+	 * @param int $entryId
+	 *
+	 * @return array
+	 * @throws ProxerException
+	 */
+	public static function getEntryStateForUser( $entryId ) {
+		return ProxerRequest::sendPostRequest( ProxerUrl::INFO_GET_USER_ENTRY, [ 'id' => $entryId ] );
 	}
 
 }
