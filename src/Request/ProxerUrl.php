@@ -68,4 +68,8 @@ class ProxerUrl {
 	const INFO_GET_PERSON = 'info/person';
 	const INFO_GET_FORUM_ENTRIES = 'info/forum';
 
+	const ANIME_GET_STREAMS = 'anime/streams';
+	const ANIME_GET_PROXERSTREAMS = 'anime/proxerstreams';
+	const ANIME_GET_STREAMLINK = 'anime/link';
+
 }
