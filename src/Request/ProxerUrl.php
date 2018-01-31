@@ -72,4 +72,6 @@ class ProxerUrl {
 	const ANIME_GET_PROXERSTREAMS = 'anime/proxerstreams';
 	const ANIME_GET_STREAMLINK = 'anime/link';
 
+	const MANGA_GET_CHAPTER = 'manga/chapter';
+
 }
