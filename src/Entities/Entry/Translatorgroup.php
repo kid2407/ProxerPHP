@@ -17,6 +17,8 @@ class Translatorgroup {
 	public $name;
 	/** @var string $country */
 	public $country;
+	/** @var string $image */
+	public $image;
 
 	/**
 	 * Translatorgroup constructor.
@@ -27,6 +29,7 @@ class Translatorgroup {
 		$this->id      = $data['id'];
 		$this->name    = $data['name'];
 		$this->country = $data['country'];
+		$this->image   = $data['image'];
 	}
 
 }

@@ -74,4 +74,14 @@ class ProxerUrl {
 
 	const MANGA_GET_CHAPTER = 'manga/chapter';
 
+	const LIST_EXTENDED_SEARCH = 'list/entrysearch';
+	const LIST_CATEGORY_SEARCH = 'list/entrylist';
+	const LIST_GET_TAG_IDS = 'list/tagids';
+	const LIST_GET_TAGS = 'list/tags';
+	const LIST_GET_TRANSLATORGROUPS = 'list/translatorgroups';
+	const LIST_GET_INDUSTRIES = 'list/industrys';
+	const LIST_GET_TRANSLATORGROUP_PROJECTS = 'list/translatorgroupprojects';
+	const LIST_GET_INDUSTRY_PROJECTS = 'list/industryprojects';
+	const LIST_GET_CHARACTERS = 'list/characters';
+
 }

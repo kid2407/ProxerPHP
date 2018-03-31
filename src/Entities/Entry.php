@@ -38,6 +38,8 @@ class Entry {
 	const TYPE_EPISODES = 'episodes';
 	const TYPE_CHAPTERS = 'chapters';
 	const TYPE_HOSTER = 'hoster';
+	const TYPE_TRANSLATORGROUP_PROJECTS = 'translatorgroupprojects';
+	const TYPE_INDUSTRY_PROJECTS = 'industryprojects';
 
 	/** @var int $id */
 	public $id;

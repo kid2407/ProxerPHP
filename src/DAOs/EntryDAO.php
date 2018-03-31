@@ -19,6 +19,7 @@ use ProxerPHP\Entities\Entry\Hoster;
 use ProxerPHP\Entities\Entry\Person;
 use ProxerPHP\Entities\Entry\Recommendation;
 use ProxerPHP\Entities\EntrySeason;
+use ProxerPHP\Entities\IndustryProject;
 use ProxerPHP\Entities\Publisher;
 use ProxerPHP\Entities\Synonym;
 use ProxerPHP\Entities\Tag;
@@ -239,6 +240,16 @@ class EntryDAO {
 			case Entry::TYPE_HOSTER:
 				foreach ( $dataArray['names'] as $index => $name ) {
 					$entities[] = new Hoster( $name, $dataArray['images'][ $index ] );
+				}
+				break;
+			case Entry::TYPE_TRANSLATORGROUP_PROJECTS:
+				foreach ( $dataArray as $data ) {
+					$entities[] = new TranslatorgroupProject( (array) $data );
+				}
+				break;
+			case Entry::TYPE_INDUSTRY_PROJECTS:
+				foreach ( $dataArray as $data ) {
+					$entities[] = new IndustryProject( (array) $data );
 				}
 				break;
 		}

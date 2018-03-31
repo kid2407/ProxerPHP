@@ -25,6 +25,8 @@ class Tag {
 	public $name;
 	/** @var string $description */
 	public $description;
+	/** @var string $subtype */
+	public $subtype;
 
 	/**
 	 * Tag constructor.
@@ -39,6 +41,7 @@ class Tag {
 		$this->isSpoiler   = ( $data['spoiler_flag'] == 1 );
 		$this->name        = $data['tag'];
 		$this->description = $data['description'];
+		$this->subtype     = $data['subtype'];
 	}
 
 }
