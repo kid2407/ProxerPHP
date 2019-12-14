@@ -49,9 +49,9 @@ class ApiResponse {
     }
 
     /**
-     * @return array
+     * @return array|string
      */
-    public function getData(): array {
+    public function getData() {
         return $this->data;
     }
 
