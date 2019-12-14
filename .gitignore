@@ -1,4 +1,5 @@
-.idea/
-vendor/
-.env
-/invalidRequest.php
+.idea
+ProxerPHP.iml
+composer.lock
+vendor
+test.php

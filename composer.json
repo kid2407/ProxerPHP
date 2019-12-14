@@ -1,19 +1,27 @@
 {
-    "name": "kid2407/proxerphp",
-    "description": "A PHP library for the Proxer.me API",
-    "type": "library",
-    "require": {
-        "guzzlehttp/guzzle": "^6.3",
-        "vlucas/phpdotenv": "^2.4"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Tobias Franz",
-            "email": "cinex.mail@web.de"
-        }
-    ],
-    "autoload": {
-        "psr-4": {"ProxerPHP\\": "src/"}
+  "name": "kid2407/proxer-php",
+  "description": "Ein Wrapper für die Proxer.me API",
+  "homepage": "https://github.com/kid2407/ProxerPHP",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tobias Franz",
+      "email": "cinex.mail@web.de"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ProxerPHP\\": "src/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.5",
+    "ext-http": "*",
+    "ext-json": "*"
+  }
 }
